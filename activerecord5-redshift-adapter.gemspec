@@ -16,4 +16,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.2.2'
   s.add_dependency 'pg', ['>= 0.18']
   s.add_dependency 'activerecord', ['>= 5.0.0', "< 5.2.0"]
+  s.add_development_dependency 'erubis'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'byebug'
 end
