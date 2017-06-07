@@ -1,8 +1,24 @@
-default_connection: <%= defined?(JRUBY_VERSION) ? 'jdbcsqlite3' : 'sqlite3' %>
+default_connection: redshift
 
 with_manual_interventions: false
 
 connections:
+  redshift:
+    arunit:
+      adapter: redshift
+      port: 5439
+      host: <%= ENV['ARUNIT_DB_HOSTNAME'] || 'localhost' %>
+      database: <%= ENV['ARUNIT_DB_NAME'] || 'arunit' %>
+      username: <%= ENV['ARUNIT_USER_NAME'] || 'arunit' %>
+      password: <%= ENV['ARUNIT_PASSWORD'] || 'arunit' %>
+    arunit2:
+      adapter: redshift
+      port: 5439
+      host: <%= ENV['ARUNIT2_DB_HOSTNAME'] || 'localhost' %>
+      database: <%= ENV['ARUNIT2_DB_NAME'] || 'arunit2' %>
+      username: <%= ENV['ARUNIT2_USER_NAME'] || 'arunit' %>
+      password: <%= ENV['ARUNIT2_PASSWORD'] || 'arunit' %>
+
   jdbcderby:
     arunit:  activerecord_unittest
     arunit2: activerecord_unittest2
